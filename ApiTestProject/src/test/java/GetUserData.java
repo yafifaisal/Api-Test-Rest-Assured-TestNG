@@ -60,7 +60,6 @@ public class GetUserData {
 		int total = response.path("total");
 		int pages = response.path("total_pages");
 		int numberUserPerPage = total / pages;
-		System.out.println(numberUserPerPage);
 
 		return numberUserPerPage;
 
