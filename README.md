@@ -36,6 +36,11 @@ Add the below dependency to your POM.xml:
 	<version>20201115</version>
 </dependency>
 ```
+
+**How to Install Maven**
+
+You can refer to this => https://www.journaldev.com/2348/install-maven-mac-os
+
 **How To Run from Eclipse**
 
 1) Clone the project : `git clone https://github.com/yafifaisal/Api-Test-Rest-Assured-TestNG.git`
