@@ -58,3 +58,11 @@ You can refer to this => https://www.journaldev.com/2348/install-maven-mac-os
 2) Make sure you already on the path project.
 
 3) type `mvn test`
+
+**How to get Report**
+
+1) Open Project. 
+
+2) Open folder test-output.
+
+3) Then open emailable-report.html
