@@ -1,10 +1,10 @@
+
 import static io.restassured.RestAssured.*;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import io.restassured.specification.*;
 import io.restassured.response.Response;
-import io.restassured.response.ResponseBody;
 
 import org.json.JSONObject;
 
@@ -16,7 +16,7 @@ public class TestCase {
 
 //	========== Login with correct Email and Password by throwing the index of data list ==========
 //  ========== { "email": "eve.holt@reqres.in", "password": "cityslicka" }              ==========
-	@Test
+	@Test (enabled=true)
 	void loginWithCorrectData() {
 
 		String email = userData.getEmail(1);
@@ -42,11 +42,10 @@ public class TestCase {
 
 //	========== Login with Email only by throwing the index of data list ==========
 //  ========== { "email": "eve.holt@reqres.in" }                        ==========
-	@Test
+	@Test (enabled=true)
 	void loginWithEmailOnly() {
 
 		String email = userData.getEmail(1);
-		int id = userData.getID(1);
 
 		JSONObject requestParams = new JSONObject();
 		requestParams.put("email", email);
@@ -65,11 +64,10 @@ public class TestCase {
 
 //	========== Login with Password only by throwing the index of data list ==========
 //  ========== { "password": "cityslicka" }                                ==========
-	@Test
+	@Test (enabled=true)
 	void loginWithPasswordOnly() {
 
 		String password = userData.getPassword(1);
-		int id = userData.getID(1);
 
 		JSONObject requestParams = new JSONObject();
 		requestParams.put("password", password);
@@ -88,7 +86,7 @@ public class TestCase {
 
 //	========== Verify data user displayed is not empty                        ==========
 //	========== Get number of user, then verify all key and value is not empty ==========
-	@Test
+	@Test (enabled=true)
 	void verifyDataUsers() {
 
 		int numberOfData = userData.getNumberOfUserPerPage();
@@ -110,7 +108,7 @@ public class TestCase {
 
 //	========== Verify avatar of user is not broken ==========
 //	========== hit image url with get method       ==========
-	@Test
+	@Test (enabled=true)
 	void verifyImageNotBroken() {
 
 		String avatar = userData.getAvatar(1);
@@ -124,7 +122,7 @@ public class TestCase {
 	
 //	========== Verify email user has a valid format                ==========
 //	========== Substring email text then verified contains @ and . ==========
-	@Test
+	@Test (enabled=true)
 	void verifyFormatEmail() {
 
 		String email = userData.getEmail(1);
