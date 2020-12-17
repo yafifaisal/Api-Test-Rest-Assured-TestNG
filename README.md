@@ -38,9 +38,13 @@ Add the below dependency to your POM.xml:
 ```
 **How To Run from Eclipse**
 
-1) Right click on that class. 
+1) Clone the project : `git clone https://github.com/yafifaisal/Api-Test-Rest-Assured-TestNG.git`
 
-2) Select TestNG.
+2) Open project with Eclipse.
+
+3) Right click on the project folder. 
+
+4) Select Mvn test.
 
 **How To Run from Command Line**
 
