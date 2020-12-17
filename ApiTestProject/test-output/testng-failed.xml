@@ -5,7 +5,7 @@
     <classes>
       <class name="LoginTestCase">
         <methods>
-          <include name="login"/>
+          <include name="loginWithCorrectData"/>
         </methods>
       </class> <!-- LoginTestCase -->
     </classes>

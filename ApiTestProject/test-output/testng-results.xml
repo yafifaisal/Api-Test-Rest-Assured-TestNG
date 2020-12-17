@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
+<testng-results ignored="0" total="4" passed="3" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2020-12-17T01:00:29 WIB" name="Default suite" finished-at="2020-12-17T01:00:33 WIB" duration-ms="4047">
+  <suite started-at="2020-12-17T07:19:25 WIB" name="Default suite" finished-at="2020-12-17T07:19:36 WIB" duration-ms="10674">
     <groups>
     </groups>
-    <test started-at="2020-12-17T01:00:29 WIB" name="Default test" finished-at="2020-12-17T01:00:33 WIB" duration-ms="4047">
+    <test started-at="2020-12-17T07:19:25 WIB" name="Default test" finished-at="2020-12-17T07:19:36 WIB" duration-ms="10674">
       <class name="LoginTestCase">
-        <test-method signature="login()[pri:0, instance:LoginTestCase@15761df8]" started-at="2020-12-17T01:00:29 WIB" name="login" finished-at="2020-12-17T01:00:33 WIB" duration-ms="4019" status="FAIL">
+        <test-method signature="loginWithCorrectData()[pri:0, instance:LoginTestCase@3e3047e6]" started-at="2020-12-17T07:19:25 WIB" name="loginWithCorrectData" finished-at="2020-12-17T07:19:30 WIB" duration-ms="4230" status="FAIL">
           <exception class="java.lang.AssertionError">
             <message>
               <![CDATA[1 expectation failed.
-Expected status code <200> but was <400>.
+Expected status code <201> but was <400>.
 ]]>
             </message>
             <full-stacktrace>
               <![CDATA[java.lang.AssertionError: 1 expectation failed.
-Expected status code <200> but was <400>.
+Expected status code <201> but was <400>.
 
 at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:64)
@@ -63,7 +63,7 @@ at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1268)
 at org.codehaus.groovy.runtime.ScriptBytecodeAdapter.invokeMethodOnSuperN(ScriptBytecodeAdapter.java:144)
 at io.restassured.internal.ValidatableResponseImpl.statusCode(ValidatableResponseImpl.groovy:142)
 at io.restassured.internal.ValidatableResponseImpl.statusCode(ValidatableResponseImpl.groovy)
-at LoginTestCase.login(LoginTestCase.java:78)
+at LoginTestCase.loginWithCorrectData(LoginTestCase.java:31)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -97,7 +97,19 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- login -->
+        </test-method> <!-- loginWithCorrectData -->
+        <test-method signature="loginWithEmailOnly()[pri:0, instance:LoginTestCase@3e3047e6]" started-at="2020-12-17T07:19:30 WIB" name="loginWithEmailOnly" finished-at="2020-12-17T07:19:31 WIB" duration-ms="1937" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginWithEmailOnly -->
+        <test-method signature="loginWithIncorrectData()[pri:0, instance:LoginTestCase@3e3047e6]" started-at="2020-12-17T07:19:31 WIB" name="loginWithIncorrectData" finished-at="2020-12-17T07:19:34 WIB" duration-ms="2633" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginWithIncorrectData -->
+        <test-method signature="loginWithPasswordOnly()[pri:0, instance:LoginTestCase@3e3047e6]" started-at="2020-12-17T07:19:34 WIB" name="loginWithPasswordOnly" finished-at="2020-12-17T07:19:36 WIB" duration-ms="1843" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginWithPasswordOnly -->
       </class> <!-- LoginTestCase -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

@@ -1,59 +1,104 @@
 import static io.restassured.RestAssured.*;
-
-import java.util.List;
-
-import io.restassured.path.json.JsonPath;
-import io.restassured.response.Response;
-import java.util.Random;
-
 import org.testng.annotations.Test;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 public class LoginTestCase {
-
-	public String getEmail(int index) {
-
-		Response response = get("https://reqres.in/api/users");
-		String email = response.path("data.email["+Integer.toString(index)+"]");
-
-		return email;
-
-	}
-
-	public String getPassword(int index) {
-
-		Response response = get("https://reqres.in/api/users");
-		String firstname = response.path("data.first_name["+Integer.toString(index)+"]");
-		String lastname = response.path("data.last_name["+Integer.toString(index)+"]");
-		String password = firstname + lastname;
-
-		return password;
-
-	}
-
+	
+	String loginUrl = "https://reqres.in/api/register";
 
 	@Test
-	void login() {
-		
-		String email = getEmail(1);
-		String password = getPassword(1);
-		
+	void loginWithCorrectData() {
+
+		GetUserData userData = new GetUserData();
+
+		String email = userData.getEmail(1);
+		String password = userData.getPassword(1);
+
 		System.out.println(email + " " + password);
-		
+
 		JSONObject requestParams = new JSONObject();
-		requestParams.put("email", email); 
 		requestParams.put("password", password);
-		
+		requestParams.put("email", email); 
+
+
 		System.out.println(requestParams.toString());
 
 		given()
-			.body(requestParams.toString()).
+		.body(requestParams.toString()).
 		when()
-			.post("https://reqres.in/api/register").
+		.post(loginUrl).
 		then()
-			.statusCode(200);
+		.statusCode(200);
 
+	}
+
+	@Test
+	void loginWithIncorrectData() {
+
+		GetUserData userData = new GetUserData();
+
+		String email = userData.getEmail(1);
+		String password = userData.getEmail(1);
+
+		System.out.println(email + " " + password);
+
+		JSONObject requestParams = new JSONObject();
+		requestParams.put("password", password);
+		requestParams.put("email", email); 
+
+
+		System.out.println(requestParams.toString());
+
+		given()
+		.body(requestParams.toString()).
+		when()
+		.post(loginUrl).
+		then()
+		.statusCode(400);
+
+	}
+
+	@Test
+	void loginWithEmailOnly() {
+
+		GetUserData userData = new GetUserData();
+
+		String email = userData.getEmail(1);
+
+		JSONObject requestParams = new JSONObject();
+		requestParams.put("email", email); 
+
+
+		System.out.println(requestParams.toString());
+
+		given()
+		.body(requestParams.toString()).
+		when()
+		.post(loginUrl).
+		then()
+		.statusCode(400);
+
+	}
+	
+	@Test
+	void loginWithPasswordOnly() {
+
+		GetUserData userData = new GetUserData();
+
+		String password = userData.getPassword(1);
+
+		JSONObject requestParams = new JSONObject();
+		requestParams.put("password", password); 
+
+
+		System.out.println(requestParams.toString());
+
+		given()
+		.body(requestParams.toString()).
+		when()
+		.post(loginUrl).
+		then()
+		.statusCode(400);
 
 	}
 
